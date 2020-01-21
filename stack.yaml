@@ -1,0 +1,17 @@
+Description: >
+  Adri Forczek / Udemy Test for CloudFormation
+
+Resources:
+  # only required section
+  WebServerInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-0713f98de93617bb4
+      InstanceType: t2.micro # included in aws free tier
+      Tags:
+        -
+          Key: Name
+          Value: Web server
+        - Key: Project
+          Value: CloudFormation Step By Step
+      

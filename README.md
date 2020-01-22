@@ -33,3 +33,5 @@ Practice AWS CloudFormation script to roll out infrastructure as code. This repo
 
 Roll out infrastructure as code as per the requirements
 Test whether EC2 instance is reachable publicly
+
+``` ping -c 4 <IP ADDRESS HERE> ```

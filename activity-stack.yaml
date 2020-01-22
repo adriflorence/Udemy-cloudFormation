@@ -31,3 +31,32 @@ Resources:
     Properties: 
       VpcId: !Ref VPC
       InternetGatewayId: !Ref InternetGateway
+
+  InternetRoute:
+    Type: AWS::EC2::Route
+    DependsOn:
+      # ensure it waits for the Gateway attachment
+      - InternetGatewayAttachment
+    Properties:
+       RouteTableId: !Ref RouteTable
+       GatewayId: !Ref InternetGateway
+       DestinationCidrBlock: 0.0.0.0/0 # internet
+
+  SubnetRouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId: !Ref RouteTable
+      SubnetId: !Ref PublicSubnet
+
+  Instance:
+    Type: AWS::EC2::Instance
+    # DependsOn: 
+    # makes sure this EC2 instance is only created after
+    # the InternetRoute and SubnetRouteTableAssociation
+    DependsOn:
+      - InternetRoute
+      - SubnetRouteTableAssociation
+    Properties:
+      InstanceType: t2.micro
+      SubnetId: !Ref PublicSubnet
+      ImageId: ami-0713f98de93617bb4

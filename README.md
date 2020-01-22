@@ -24,7 +24,8 @@ Practice AWS CloudFormation script to roll out infrastructure as code. This repo
 - VPC
 - Public Subnet (x1)
 - Route Table associated with the Subnet (x1)
-- Internet Gateway attached to the VPC
+- Internet Gateway attached to the VPC (x1) + Attachment
+- Internet Route
 - EC2 instance in the Public Subnet (x1)
 - Security Group with Ingress rule attached to EC2 instance
 

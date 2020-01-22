@@ -1,17 +1,22 @@
 Description: >
   Adri Forczek / Udemy Test for CloudFormation
 
+# only required section
 Resources:
-  # only required section
   WebServerInstance:
     Type: AWS::EC2::Instance
     Properties:
       ImageId: ami-0713f98de93617bb4
       InstanceType: t2.micro # included in aws free tier
+      SecurityGroupIds:
+        # short format: - !Ref WebServerSecurityGroup
+        # longer format: 
+        - 
+          Ref: WebServerSecurityGroup
       Tags:
         -
           Key: Name
-          Value: Web server
+          Value: Web Server # this can be anything
         - 
           Key: Project
           Value: CloudFormation Step By Step
@@ -31,5 +36,4 @@ Resources:
       Tags:
         -
           Key: Name
-          Value: Web server
-      
+          Value: Web Server Security Group

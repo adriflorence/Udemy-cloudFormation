@@ -2,7 +2,7 @@
 
 Practice AWS CloudFormation script to roll out infrastructure as code. This repository contains two files:
 
-## stack.yaml
+## 1. stack.yaml
 
 ### Components included in stack.yaml:
 
@@ -17,7 +17,7 @@ Practice AWS CloudFormation script to roll out infrastructure as code. This repo
 
 ``` aws cloudformation update-stack --stack-name udemy-test --region eu-west-1 --template-body file://stack.yaml ```
 
-## activity-stack.yaml:
+## 2. activity-stack.yaml:
 
 ### Components included in stack.yaml:
 
@@ -29,9 +29,10 @@ Practice AWS CloudFormation script to roll out infrastructure as code. This repo
 - EC2 instance in the Public Subnet (x1)
 - Security Group with Ingress rule attached to EC2 instance
 
-## Task
+## Tasks
 
 Roll out infrastructure as code as per the requirements
-Test whether EC2 instance is reachable publicly
+
+Test whether EC2 instance is reachable publicly:
 
 ``` ping -c 4 <IP ADDRESS HERE> ```
